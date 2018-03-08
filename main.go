@@ -25,7 +25,7 @@ func main() {
 	fmt.Println(string(out))
 
 	// git pull origin develop
-	out, err = exec.Command("git", "pull", "origin", "develop").Output()
+	out, err = exec.Command("git", "pull").Output()
 	if err != nil {
 		panic(err)
 	}
