@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"time"
 )
 
 func main() {
@@ -58,7 +59,7 @@ func main() {
 	}
 	fmt.Println(string(out))
 
-	commitMessage := "release YYYY-mm-dd"
+	commitMessage := "release " + time.Now().Format("2006-01-02")
 	// git commit -m '$(COMMIT_MSG)'
 	out, err = exec.Command("git", "commit", "-m", commitMessage).Output()
 	if err != nil {
