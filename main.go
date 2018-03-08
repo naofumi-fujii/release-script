@@ -17,12 +17,6 @@ func main() {
 	// git commit -m '$(COMMIT_MSG)'
 	// git push
 
-	// out, err := exec.Command("git", "branch").Output()
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// fmt.Println(string(out))
-
 	branchName := fmt.Sprintf("%s", os.Args[1])
 	out, err := exec.Command("git", "checkout", "-b", branchName).Output()
 	if err != nil {
