@@ -22,7 +22,8 @@ func main() {
 	// }
 	// fmt.Println(string(out))
 
-	out, err := exec.Command("git", "checkout", "-b", "develop").Output()
+	branchName := fmt.Sprintf("%s", "develop")
+	out, err := exec.Command("git", "checkout", "-b", branchName).Output()
 	if err != nil {
 		panic(err)
 	}
