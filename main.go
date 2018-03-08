@@ -58,7 +58,7 @@ func main() {
 	}
 	fmt.Println(string(out))
 
-	commitMessage := "release YYYY-mm-dd"
+	commitMessage := "'release YYYY-mm-dd'"
 	// git commit -m '$(COMMIT_MSG)'
 	out, err = exec.Command("git", "commit", "-m", commitMessage).Output()
 	if err != nil {
