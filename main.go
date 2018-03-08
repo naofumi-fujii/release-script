@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"os/exec"
 )
 
@@ -22,7 +23,7 @@ func main() {
 	// }
 	// fmt.Println(string(out))
 
-	branchName := fmt.Sprintf("%s", "develop")
+	branchName := fmt.Sprintf("%s", os.Args[1])
 	out, err := exec.Command("git", "checkout", "-b", branchName).Output()
 	if err != nil {
 		panic(err)
