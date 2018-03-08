@@ -23,12 +23,53 @@ func main() {
 	}
 	fmt.Println(string(out))
 
-	// git pull
-	// git checkout -b $(BRANCH_NAME)
-	// git push --set-upstream origin $(BRANCH_NAME)
-	// git checkout master
-	// git read-tree -u --reset $(BRANCH_NAME)
-	// git commit -m '$(COMMIT_MSG)'
-	// git push
+	// git pull origin develop
+	out, err = exec.Command("git", "pull", "origin", "develop").Output()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(out))
 
+	// git checkout -b $(BRANCH_NAME)
+	out, err = exec.Command("git", "checkout", "-b", branchName).Output()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(out))
+
+	// git push --set-upstream origin $(BRANCH_NAME)
+	out, err = exec.Command("git", "push", "--set-upstream", "origin", branchName).Output()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(out))
+
+	// git checkout master
+	out, err = exec.Command("git", "checkout", "master").Output()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(out))
+
+	// git read-tree -u --reset $(BRANCH_NAME)
+	out, err = exec.Command("git", "read-tree", "-u", "--reset", branchName).Output()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(out))
+
+	commitMessage := "release YYYY-mm-dd"
+	// git commit -m '$(COMMIT_MSG)'
+	out, err = exec.Command("git", "commit", "-m", commitMessage).Output()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(out))
+
+	// git push
+	out, err = exec.Command("git", "push").Output()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(out))
 }
