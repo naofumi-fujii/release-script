@@ -11,9 +11,9 @@ func main() {
 
 	// git branch -D $(BRANCH_NAME)
 	out, err := exec.Command("git", "branch", "-D", branchName).Output()
-	if err != nil {
-		panic(err)
-	}
+	// if err != nil {
+	// 	panic(err)
+	// }
 	fmt.Println(string(out))
 
 	// git checkout develop
