@@ -2,7 +2,7 @@
 
 install
 --
-go get github.com/naofumi-fujii/release-script
+go get -u github.com/naofumi-fujii/release-script
 
 usage
 --
