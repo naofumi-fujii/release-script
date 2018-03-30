@@ -52,6 +52,12 @@ func main() {
 	}
 	fmt.Println(string(out))
 
+	out, err = exec.Command("git", "pull").Output()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(out))
+
 	// git read-tree -u --reset $(BRANCH_NAME)
 	out, err = exec.Command("git", "read-tree", "-u", "--reset", branchName).Output()
 	if err != nil {
